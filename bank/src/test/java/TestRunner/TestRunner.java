@@ -6,8 +6,9 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
+// for parallel execution
 @CucumberOptions(
-		features = ".//Functional_TC/BankTC_2.feature",
+		features = {".//Functional_TC/BankTC_1.feature",".//Functional_TC/BankTC_2.feature"},
 		glue="step",
 		dryRun = false
 		)
