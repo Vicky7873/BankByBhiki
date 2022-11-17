@@ -7,12 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import CommonMethods.alertMethod;
+import Manager.MasterManager;
 import utills.dataFromconfig;
 
-public class LoginPage{
+public class LoginPage_DD{
 	private WebDriver driver;
-	alertMethod alt=new alertMethod(driver);
-	public LoginPage(WebDriver driver) {
+	public LoginPage_DD(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
 	
@@ -28,20 +29,21 @@ public class LoginPage{
 	@CacheLookup
 	WebElement btn_login;
 	
-	@FindBy(xpath="//marquee[@class=\"heading3\" or @behavior=\"alternate\"]")
+	@FindBy(xpath="//marquee[@class=\"heading3\"]")
 	@CacheLookup
 	WebElement getTxt_welcomeMsg;
 	
-	public void EnterTheUserNAme() {
-		input_UserNAme.sendKeys(dataFromconfig.UserID);
+	public void EnterTheUserNAme(String string) {
+		input_UserNAme.sendKeys(string);
 	}
-	public void EnterPassword() {
-		input_password.sendKeys(dataFromconfig.Password);
+	public void EnterPassword(String string) {
+		input_password.sendKeys(string);
 	}
 	
 	public void clickLogin() {
 		btn_login.click();
 	}
+	
 	String Msg;
 	public void VerifyTheWelcomeMsg() {
 		Msg=getTxt_welcomeMsg.getText();
@@ -51,6 +53,20 @@ public class LoginPage{
 	public void verifyTheHeadermsg() {
 		String exp="Welcome To Manager's Page of Guru99 Bank";
 		alt.ComapreTheExpectedAndActual(Msg, exp);
+	}
+	String act;
+	alertMethod alt;
+	public void switchToAlertPOPup() {
+		alt=new alertMethod(driver);
+		alt.switchToAlert();
+		act=alt.GetTheTextOfAlertThenAcceptIT();
+		System.out.println(act);
+		alt.aceeptTheAlert();
+	}
+	
+	public void VerifyThePOPupmsg() {
+		String exp="User or Password is not valid";
+		alt.ComapreTheExpectedAndActual(exp, act);
 	}
 
 }

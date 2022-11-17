@@ -21,5 +21,7 @@ public class WaitMethod {
 		WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(20));
 		w.until(ExpectedConditions.visibilityOf(Element));
 	}
+	
+	
 
 }

@@ -19,6 +19,7 @@ public class TC_2_step extends WebDriverManger{
 	@Then("verify the header")
 	public void verify_the_header() {
 	    lp.VerifyTheWelcomeMsg();
+	    lp.verifyTheHeadermsg();
 	}
 	
 }
