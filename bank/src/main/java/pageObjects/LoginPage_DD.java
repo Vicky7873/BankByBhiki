@@ -1,20 +1,25 @@
 package pageObjects;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import CommonMethods.ScreenShotMethods;
 import CommonMethods.alertMethod;
 
 public class LoginPage_DD{
 	private WebDriver driver;
 	alertMethod alt;
+	ScreenShotMethods ss;
 	public LoginPage_DD(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 		alt=new alertMethod(driver);
+		ss=new ScreenShotMethods(driver);
 	}
 	
 	
@@ -81,6 +86,15 @@ public class LoginPage_DD{
 		MAnager=getTxt_managerID.getText();
 		String exp="Manger Id : mngr454831";
 		alt.ComapreTheExpectedAndActual(MAnager, exp);
+	}
+	
+	public void TakeTheScreenShot() {
+		try {
+			ss.takeTheScreenShot();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

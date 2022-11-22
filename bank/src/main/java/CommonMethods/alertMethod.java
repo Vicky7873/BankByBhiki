@@ -4,9 +4,6 @@ package CommonMethods;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
-import Manager.MasterManager;
-import Manager.WebDriverManger;
-
 public class alertMethod {
 	Alert alt;
 	private WebDriver driver;
@@ -34,5 +31,5 @@ public class alertMethod {
 			System.out.println("The "+exp+" is not equals to "+Actual);
 		}
 	}
-
+	
 }
