@@ -7,15 +7,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import CommonMethods.alertMethod;
-import Manager.MasterManager;
-import utills.dataFromconfig;
 
 public class LoginPage_DD{
 	private WebDriver driver;
+	alertMethod alt;
 	public LoginPage_DD(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
+		alt=new alertMethod(driver);
 	}
+	
 	
 	@FindBy(name="uid")
 	@CacheLookup
@@ -33,6 +34,12 @@ public class LoginPage_DD{
 	@CacheLookup
 	WebElement getTxt_welcomeMsg;
 	
+	//@FindBy(xpath="//*[@class=\"layout\"]//*[@align=\"center\"]//*[@style=\"color: green\"]")
+	@FindBy(xpath="//tr[@align=\'center\']")
+	@CacheLookup
+	WebElement getTxt_managerID;
+	
+	
 	public void EnterTheUserNAme(String string) {
 		input_UserNAme.sendKeys(string);
 	}
@@ -44,7 +51,7 @@ public class LoginPage_DD{
 		btn_login.click();
 	}
 	
-	String Msg;
+	public String Msg;
 	public void VerifyTheWelcomeMsg() {
 		Msg=getTxt_welcomeMsg.getText();
 		System.out.println(Msg); 
@@ -55,9 +62,8 @@ public class LoginPage_DD{
 		alt.ComapreTheExpectedAndActual(Msg, exp);
 	}
 	String act;
-	alertMethod alt;
 	public void switchToAlertPOPup() {
-		alt=new alertMethod(driver);
+		//alt=new alertMethod(driver);
 		alt.switchToAlert();
 		act=alt.GetTheTextOfAlertThenAcceptIT();
 		System.out.println(act);
@@ -67,6 +73,14 @@ public class LoginPage_DD{
 	public void VerifyThePOPupmsg() {
 		String exp="User or Password is not valid";
 		alt.ComapreTheExpectedAndActual(exp, act);
+	}
+	
+	String MAnager;
+	public void getTheMangersID() {
+		//alt=new alertMethod(driver);
+		MAnager=getTxt_managerID.getText();
+		String exp="Manger Id : mngr454831";
+		alt.ComapreTheExpectedAndActual(MAnager, exp);
 	}
 
 }

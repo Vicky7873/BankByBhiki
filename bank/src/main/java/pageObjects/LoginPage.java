@@ -11,10 +11,10 @@ import utills.dataFromconfig;
 
 public class LoginPage{
 	private WebDriver driver;
-	alertMethod alt=new alertMethod(driver);
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver,this);
 	}
+	alertMethod alt=new alertMethod(driver);
 	
 	@FindBy(name="uid")
 	@CacheLookup

@@ -27,7 +27,8 @@ public class PageObjectManager {
 		 return (Login_datadriven==null)? new LoginPage_DD(driver):Login_datadriven;
 	 }
 	 
-	 public alertMethod GetAlert() {
-		 return (alert==null)?new alertMethod(driver):alert;
-	 }
+	 public alertMethod getAlertMethods() {
+		return (alert==null)? new alertMethod(driver):alert;
+	}
+	
 }

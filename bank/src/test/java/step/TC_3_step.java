@@ -14,7 +14,7 @@ public class TC_3_step {
 	public TC_3_step(MasterManager am) {
 		mm=am;
 		lp=mm.getPOM().getTheloginPageForDD();
-		alt=mm.getPOM().GetAlert();
+		alt=mm.getPOM().getAlertMethods();
 	}
 	
 	@Then("enter the username {string}")
@@ -34,7 +34,8 @@ public class TC_3_step {
 	public void verify_the_popup() {
 		lp.switchToAlertPOPup();
 		lp.VerifyThePOPupmsg();
-		//alt.GetTheTextOfAlertThenAcceptIT();
+	    //alt.GetTheTextOfAlertThenAcceptIT();
+		
 		
 	}
 

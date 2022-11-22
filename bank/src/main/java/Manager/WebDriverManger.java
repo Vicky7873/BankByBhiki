@@ -11,7 +11,7 @@ public class WebDriverManger {
 	static String browser=ConfigReader.getConfigReader("Browser");
 	static String url=ConfigReader.getConfigReader("url");
 	protected static WebDriver driver;
-	protected static WebDriver SetTheDriver() {
+	public static WebDriver SetTheDriver() {
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver=new ChromeDriver();
@@ -26,6 +26,6 @@ public class WebDriverManger {
 	
 	public static void setTheURl() {
 		driver.get(url);
-	}
+	} 
 
 }

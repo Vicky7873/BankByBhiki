@@ -1,26 +1,25 @@
 package CommonMethods;
 
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+
+import Manager.MasterManager;
+import Manager.WebDriverManger;
 
 public class alertMethod {
-	
-	private WebDriver driver;
 	Alert alt;
-	
+	private WebDriver driver;
 	public alertMethod(WebDriver driver) {
 		this.driver=driver;
-		PageFactory.initElements(driver,this);
 	}
 	
 	public void switchToAlert() {
-		alt=driver.switchTo().alert();
+		alt = driver.switchTo().alert();
 	}
 	
 	public String GetTheTextOfAlertThenAcceptIT() {
-		String text=alt.getText();
-		return text;
+		return alt.getText();
 	}
 	
 	public void aceeptTheAlert() {
