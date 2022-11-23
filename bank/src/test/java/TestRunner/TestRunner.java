@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 // for parallel execution
 @CucumberOptions(
 		//features = {".//Functional_TC/BankTC_1.feature",".//Functional_TC/BankTC_2.feature"},
-		features = {".//Functional_TC/BankTC_3.feature"},
+		features = {".//Functional_TC/BankTC_6.feature"},
 		glue="step",
 		plugin = {"pretty", "html:target/cucumber.html" },
 		dryRun = false
