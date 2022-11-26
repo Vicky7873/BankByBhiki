@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import CommonMethods.alertMethod;
+import pageObjects.ChangePassword;
 import pageObjects.LoginPage;
 import pageObjects.LoginPage_DD;
 
@@ -18,6 +19,7 @@ public class PageObjectManager {
 	 LoginPage loginPage;
 	 LoginPage_DD Login_datadriven;
 	 alertMethod alert;
+	 ChangePassword changePassword;
 	 
 	 public LoginPage getTheLoginPage() {
 		 return (loginPage==null)? new LoginPage(driver):loginPage; 
@@ -30,5 +32,9 @@ public class PageObjectManager {
 	 public alertMethod getAlertMethods() {
 		return (alert==null)? new alertMethod(driver):alert;
 	}
+	 
+	 public ChangePassword getTheChangepassword() {
+		 return (changePassword==null)?new ChangePassword(driver):changePassword;
+	 }
 	
 }
