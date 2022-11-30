@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import CommonMethods.IframeHandle;
 import CommonMethods.alertMethod;
+import utills.dataFromconfig;
 
 public class ChangePassword {
 	
@@ -20,6 +21,7 @@ public class ChangePassword {
 	alertMethod alt;
 	IframeHandle iframe;
 	public ChangePassword(WebDriver driver) {
+		this.driver=driver;
 		PageFactory.initElements(driver,this);
 		alt=new alertMethod(driver);
 		iframe=new IframeHandle(driver);
@@ -49,6 +51,10 @@ public class ChangePassword {
 	@CacheLookup
 	WebElement AD_dismiss_button;
 	
+	@FindBy(xpath="//div[@id=\"dismiss-button\" and @aria-label=\"Close ad\"]")
+	@CacheLookup
+	WebElement ad2_dismissBtn;
+	
 	public void clickOnChangePassword() {
 		button_changePassword.click();
 	}
@@ -61,6 +67,9 @@ public class ChangePassword {
 		if(alt.WaitForWebDriverWait(20).until(ExpectedConditions.elementToBeClickable(AD_dismiss_button))!=null) {
 			System.out.println("Button is displayed");
 			AD_dismiss_button.click(); 
+		}
+		else if(ad2_dismissBtn.isDisplayed()){
+			ad2_dismissBtn.click();
 		}
 		else {
 			iframe.switchtoframeByElementID("ad_iframe");
@@ -96,5 +105,13 @@ public class ChangePassword {
 	
 	public void acceptThePoPup() {
 		alt.aceeptTheAlert();
+	}
+	
+	public void enterTheCorrectPassoword() {
+		enterText_OldPassword.sendKeys("Bhiki@123");
+	}
+	
+	public void GetTheTitleOfLoginPage() {
+		System.out.println(driver.getTitle());
 	}
 }

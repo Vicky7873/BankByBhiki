@@ -15,13 +15,10 @@ public class LoginPage{
 		PageFactory.initElements(driver,this);
 	}
 	alertMethod alt=new alertMethod(driver);
-	
 	@FindBy(name="uid")
-	@CacheLookup
 	WebElement input_UserNAme;
 	
 	@FindBy(xpath="//*[@name=\"password\"]")
-	@CacheLookup
 	WebElement input_password;
 	
 	@FindBy(xpath="//*[@name=\"btnLogin\"]")
@@ -33,10 +30,11 @@ public class LoginPage{
 	WebElement getTxt_welcomeMsg;
 	
 	public void EnterTheUserNAme() {
-		input_UserNAme.sendKeys(dataFromconfig.UserID);
+		String name="mngr454831";
+		input_UserNAme.sendKeys(name);
 	}
 	public void EnterPassword() {
-		input_password.sendKeys(dataFromconfig.Password);
+		input_password.sendKeys("Bhiki@123");
 	}
 	
 	public void clickLogin() {

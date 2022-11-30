@@ -13,7 +13,7 @@ Scenario Outline: Valid User Name and Valid Password
  
  Examples:
  |username  |password|
- |mngr454831|Eqyvyre |
+ |mngr454831|Bhiki@123 |
  
  Scenario Outline: set of InValid User Name and InValid Password
  Then enter the username "<username>"
