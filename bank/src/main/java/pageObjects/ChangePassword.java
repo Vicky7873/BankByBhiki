@@ -42,7 +42,7 @@ public class ChangePassword {
 	@CacheLookup
 	WebElement btn_submit;
 	
-	@FindBy(xpath="//div[@id=\"dismiss-button\" and @class=\"btn skip\"]")
+	@FindBy(xpath="//div[@id=\"dismiss-button\"]")
 	@CacheLookup
 	WebElement AD_dismiss_button;
 	
@@ -58,17 +58,26 @@ public class ChangePassword {
 //		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(20));
 //		Alert alert=wait.until(ExpectedConditions.alertIsPresent());
 //		alert.dismiss();
+	//	driver.navigate().refresh()
+		// need to handle the frame and button smartly using if else or try catch block
 		iframe.switchtoframeByElementID("google_ads_iframe_/24132379/INTERSTITIAL_DemoGuru99_0");
-		if(alt.WaitForWebDriverWait(20).until(ExpectedConditions.elementToBeClickable(AD_dismiss_button))!=null) {
+		try {
+			if(AD_dismiss_button.isDisplayed()) {
+		//if(alt.WaitForWebDriverWait(20).until(ExpectedConditions.elementToBeClickable(AD_dismiss_button)).isDisplayed()) {
 			System.out.println("Button is displayed");
 			AD_dismiss_button.click(); 
 		}
-		else if(ad2_dismissBtn.isDisplayed()){
+		else if(alt.WaitForWebDriverWait(20).until(ExpectedConditions.elementToBeClickable(ad2_dismissBtn)).isDisplayed()){
+			System.out.println("Button2 is displayed");
 			ad2_dismissBtn.click();
 		}
 		else {
 			iframe.switchtoframeByElementID("ad_iframe");
 			AD_dismiss_button.click();
+		}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 		

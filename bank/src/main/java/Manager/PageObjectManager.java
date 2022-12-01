@@ -7,6 +7,7 @@ import CommonMethods.alertMethod;
 import pageObjects.ChangePassword;
 import pageObjects.LoginPage;
 import pageObjects.LoginPage_DD;
+import pageObjects.New_Customer;
 
 public class PageObjectManager {
 	
@@ -20,6 +21,7 @@ public class PageObjectManager {
 	 LoginPage_DD Login_datadriven;
 	 alertMethod alert;
 	 ChangePassword changePassword;
+	 New_Customer NC;
 	 
 	 public LoginPage getTheLoginPage() {
 		 return (loginPage==null)? new LoginPage(driver):loginPage; 
@@ -35,6 +37,10 @@ public class PageObjectManager {
 	 
 	 public ChangePassword getTheChangepassword() {
 		 return (changePassword==null)?new ChangePassword(driver):changePassword;
+	 }
+	 
+	 public New_Customer getTheNew_Customer() {
+		 return (NC==null)?new New_Customer(driver):NC;
 	 }
 	
 }

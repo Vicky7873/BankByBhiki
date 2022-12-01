@@ -34,7 +34,7 @@ public class LoginPage{
 		input_UserNAme.sendKeys(name);
 	}
 	public void EnterPassword() {
-		input_password.sendKeys("Bhiki@123");
+		input_password.sendKeys("Bhiki@1234");
 	}
 	
 	public void clickLogin() {
