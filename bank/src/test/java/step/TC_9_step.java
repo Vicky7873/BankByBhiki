@@ -6,6 +6,7 @@ import Manager.MasterManager;
 import io.cucumber.java.en.Then;
 import pageObjects.ChangePassword;
 import pageObjects.New_Customer;
+import utills.randomUtils;
 
 public class TC_9_step {
 	
@@ -17,7 +18,7 @@ public class TC_9_step {
 		NC=mm.getPOM().getTheNew_Customer();
 		cp=mm.getPOM().getTheChangepassword();
 	}
-	
+	randomUtils rr=new randomUtils();
 	
 	@Then("click on Add customer {string},{string},{string},{string},{string},{string},{string},{string}")
 	public void click_on_add_customer(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8) {
@@ -31,7 +32,7 @@ public class TC_9_step {
 	    NC.clickOnState(string4);
 	    NC.clickOnPIN(string5);
 	    NC.clickOnInputTelephone(string6);
-	    NC.clickOnEmailId(string7);
+	    NC.clickOnEmailId(rr.setTheEmailForTC_9_step());
 	    NC.clickOnPassword(string8);
 	}
 
