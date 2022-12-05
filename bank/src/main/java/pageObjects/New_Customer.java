@@ -67,6 +67,14 @@ public class New_Customer {
 	@CacheLookup
 	WebElement btn_submit;
 	
+	@FindBy(xpath="//a[contains(text(),'Continue')]")
+	@CacheLookup
+	WebElement btn_continue;
+	
+	@FindBy(xpath="//table[@name=\"customer\"]//tr[4]//td[2]")
+	@CacheLookup
+	WebElement getTxt_ofCustomerId;
+	
 	public void clickOnAddCustomer() {
 		btn_AddCustomer.click();
 	}
@@ -117,6 +125,14 @@ public class New_Customer {
 	
 	public void TakeTheSSofDetails() throws IOException {
 		ss.takeTheScreenShot();
+	}
+	
+	public String GetTheTextOfCuxtomerID() {
+		return getTxt_ofCustomerId.getText();
+	}
+	
+	public void clickOnContinueButton() {
+		btn_continue.click();
 	}
 
 }

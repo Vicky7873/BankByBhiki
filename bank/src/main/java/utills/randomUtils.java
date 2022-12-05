@@ -8,5 +8,7 @@ public class randomUtils {
 		String RandomEmail=RandomStringUtils.randomAlphabetic(5);
 		return RandomEmail+"@gmail.com";
 	}
+	
+	public static String Customer_id="";
 
 }
